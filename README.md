@@ -7,7 +7,8 @@ Sv443 JSLib - A JavaScript library that is used by most of my JS projects that m
 
 
 # Setup:
-- XY
+- Just add this tag to your HTML header:
+```<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@1.0.0/jslib.js"></script>```
   
   
 # Planned Features:
