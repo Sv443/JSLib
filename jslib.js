@@ -27,10 +27,12 @@ function getMetaSettings(separation1, separation2){
 }
 
 
-// element with class="loadfocus" will be automatically focused on page load (useful for <input type="text"> tags)
+// element with class="loadfocus" will be automatically focused on page load (useful for <input type="text"> tags) if you create the following variable: var jsl_loadfocus_enabled = true;
 document.addEventListener("DOMContentLoaded", function(){
-	if(document.getElementsByClassName("loadfocus")[0] !== null && document.getElementsByClassName("loadfocus")[0].nodeName == "INPUT"){
-		document.getElementsByClassName("loadfocus")[0].focus();
+	if(jsl_loadfocus_enabled !== undefined && jsl_loadfocus === true){
+		if(document.getElementsByClassName("loadfocus")[0] !== null && document.getElementsByClassName("loadfocus")[0].nodeName == "INPUT"){
+			document.getElementsByClassName("loadfocus")[0].focus();
+		}
 	}
 });
 
