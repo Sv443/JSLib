@@ -4,7 +4,7 @@
 
 
 
-# Setup:
+# Installation:
 - Just add this tag to your HTML header:
 ```html
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@latest/jslib.js"></script>
