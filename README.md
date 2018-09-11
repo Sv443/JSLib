@@ -1,4 +1,4 @@
-Sv443 JSLib - A JavaScript library that is used by most of my JS projects that makes coding a bit faster and takes away a bit of the pain in the butt
+## Sv443 JSLib - A JavaScript library that is used by most of my JS projects that makes coding a bit faster and takes away a bit of the pain in the butt
 
 
 # Current Features:
@@ -71,7 +71,7 @@ fullurl = "the websites full URL, including query string, eg. 'www.google.com/se
 # Setup:
 - Just add this tag to your HTML header:
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib/jslib.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@latest/jslib.js"></script>
 ```
 - Then, add this to one of your scripts:
 ```javascript
