@@ -2,9 +2,26 @@
 
 ## To see some examples, please go to <a href="https://sv443.github.io/jslib/demo.html">this website</a>
 
+
+
+# Setup:
+- Just add this tag to your HTML header:
+```html
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@latest/jslib.js"></script>
+```
+- Then, add this to one of your scripts:
+```javascript
+function domcl() {
+    //this function will be executed after the DOM content has loaded
+    //not including this function will result in an error message
+}
+```
+
+
+
 # Current Features:
 
-- Shorter versions of most used functions:
+## Shorter versions of most used functions:
 ```javascript
 document.getElementById(id);  ->  gebid(id);
 document.getElementsByClassName(class);  ->  gebcn(class);
@@ -21,7 +38,7 @@ var elements = document.getElementsByClassName(class); for(var i = 0;i < element
 
 
 
-- Menus
+## Menus
 ```javascript
 Menu.demonstrate();
 // creates and opens a demo menu so you can look at what you can do with it - try this first!
@@ -41,7 +58,7 @@ Menu.close(id);
 
 
 
-- Audio
+## Audio
 ```javascript
 Audio.demonstrate();
 // creates and plays a demo audio and uses the below functions so you can hear what you can do with it - try this first!
@@ -62,7 +79,7 @@ Audio.volume(id, volume);
 
 
 
-- Desktop Notifications
+## Desktop Notifications
 ```javascript
 Notif.send(title, description, iconsrc);
 // asks the user for permission to send notifications and then sends a notification with specified title and optionally a description and also optionally an icon URL
@@ -70,7 +87,7 @@ Notif.send(title, description, iconsrc);
 
 
 
-- Slightly more advanced error system
+## Slightly more advanced error system
 ```javascript
 error(cause, contact);
 //alerts a message with a randomized title, the specified error cause and your contact info (can be left empty or null)
@@ -78,7 +95,7 @@ error(cause, contact);
 
 
 
-- URLify
+## URLify
 ```javascript
 urlify(string, prefix, target);
 //will turn a URL inside the specified string to an HTML anchor (<a>) tag with a specified prefix and target
@@ -87,10 +104,12 @@ urlify(string, prefix, target);
 
 
 
-- MetaSettings
+## MetaSettings
+HTML:
 ```html
 <meta class="jsl_setting" name="your setting's name" content="the value of the setting">
 ```
+JS:
 ```javascript
 getMetaSettings(separation1, separation2);
 //returns the following of all metas with the class="jsl_setting":
@@ -105,7 +124,7 @@ getMetaSettings(separation1, separation2);
 
 
 
-- Useful Variables
+## Useful Variables
 ```javascript
 qstr = "the website's query string (the part after the '?' in the URL), excluding the question mark, eg. 'q=example' in 'www.google.com/search?q=example'";
 urlhost = "the websites hostname, eg. 'www.google.com' in 'www.google.com/search?q=example'";
@@ -113,24 +132,6 @@ urlpath = "the websites path, eg. '/search' in 'www.google.com/search?q=example'
 cururl = "the websites full URL without query string, eg. 'www.google.com/search' in 'www.google.com/search?q=example'";
 fullurl = "the websites full URL, including query string, eg. 'www.google.com/search?q=example' in 'www.google.com/search?q=example'";
 ```
-
-
-
-
-
-# Setup:
-- Just add this tag to your HTML header:
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@latest/jslib.js"></script>
-```
-- Then, add this to one of your scripts:
-```javascript
-function domcl() {
-    //this function will be executed after the DOM content has loaded
-    //not including this function will result in an error message
-}
-```
-
 
 
 
