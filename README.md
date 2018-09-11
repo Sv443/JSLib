@@ -1,5 +1,6 @@
 ## Sv443 JSLib - A JavaScript library that is used by most of my JS projects that makes coding a bit faster and takes away a bit of the pain in the butt
 
+## To see some examples, please go to <a href="https://sv443.github.io/jslib/demo.html">this website</a>
 
 # Current Features:
 
@@ -16,6 +17,55 @@ console.log(string);  ->  clog(string);
 if(string === undefined || string === null || string == ""){}  ->  if(isempty(string)){}
 document.getElementById(id).style=style;  ->  stylebid(id, style);
 var elements = document.getElementsByClassName(class); for(var i = 0;i < elements.length;i++){elements[i].style=style;} -> stylebcn(class, style);
+```
+
+
+
+- Menus
+```javascript
+Menu.demonstrate();
+// creates and opens a demo menu so you can look at what you can do with it - try this first!
+
+Menu.theme("dark"); or Menu.theme("light");
+// changes the theme of all menus
+
+Menu.new(id, title, innerhtml);
+// creates a new menu with specified id, title and content (string containing HTML code)
+
+Menu.open(id);
+// after you created a menu you can open it with this function utilizing the id
+
+Menu.close(id);
+// the menu already has a close button but you can also close it utilizing the id like this
+```
+
+
+
+- Audio
+```javascript
+Audio.demonstrate();
+// creates and plays a demo audio and uses the below functions so you can hear what you can do with it - try this first!
+
+Audio.new(id, src, type);
+// creates a new audio with specified id, source URL and type (must be either "mpeg" or "ogg")
+
+Audio.play(id);
+// after you created an audio you can play it with this function utilizing the id
+
+Audio.pause(id);
+// while the audio is playing you can pause it with this function utilizing the id
+
+Audio.volume(id, volume);
+// after you created an audio you can change the volume of it with this function utilizing the id
+// the volume attribute needs to be a float between 0.0 and 1.0
+```
+
+
+
+- Desktop Notifications
+```javascript
+Notif.send(title, description, iconsrc);
+// asks the user for permission to send notifications and then sends a notification with specified title and optionally a description and also optionally an icon URL
 ```
 
 
