@@ -18,11 +18,15 @@ document.getElementById(id).style=style;  ->  stylebid(id, style);
 var elements = document.getElementsByClassName(class); for(var i = 0;i < elements.length;i++){elements[i].style=style;} -> stylebcn(class, style);
 ```
 
+
+
 - Slightly more advanced error system
 ```javascript
 error(cause, contact);
 //alerts a message with a randomized title, the specified error cause and your contact info (can be left empty or null)
 ```
+
+
 
 - URLify
 ```javascript
@@ -30,6 +34,8 @@ urlify(string, prefix, target);
 //will turn a URL inside the specified string to an HTML anchor (<a>) tag with a specified prefix and target
 //if prefix is left empty or null, it will not be used - if target is left empty or null, it will default to '_self'
 ```
+
+
 
 - MetaSettings
 ```html
@@ -47,6 +53,8 @@ getMetaSettings(separation1, separation2);
 //an empty content will result in undefined
 ```
 
+
+
 - Useful Variables
 ```javascript
 qstr = "the website's query string (the part after the '?' in the URL), excluding the question mark, eg. 'q=example' in 'www.google.com/search?q=example'";
@@ -55,6 +63,9 @@ urlpath = "the websites path, eg. '/search' in 'www.google.com/search?q=example'
 cururl = "the websites full URL without query string, eg. 'www.google.com/search' in 'www.google.com/search?q=example'";
 fullurl = "the websites full URL, including query string, eg. 'www.google.com/search?q=example' in 'www.google.com/search?q=example'";
 ```
+
+
+
 
 
 # Setup:
@@ -69,6 +80,8 @@ function domcl() {
     //not including this function will result in an error message
 }
 ```
+
+
 
 
 # How to Report Bugs or Contribute to the Script:
