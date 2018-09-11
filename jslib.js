@@ -1,22 +1,39 @@
-var jslversion = "1.0.0", jslname = "JSLib";
+/*
+
+JSLib v1.0.1 - JavaScript library that is used by most of Sv443's JS projects that makes coding a bit faster and takes away a bit of the pain in the butt
+For full documentation please visit https://github.com/Sv443/jslib
+To report bugs, suggest features or send in code, please go to https://github.com/Sv443/jslib/issues
+
+
+v1.0.1 changelog:
+	- removed loadfocus, since it is easy to do yourself and it always throws errors
+	- modified a few comments
+	- removed demo functions
+
+*/
+
+
+
+
+var jslversion = "1.0.1", jslname = "JSLib";
 var qstr = window.location.search.substring(1); // this is the URL's query string (without question mark)
 var urlhost = window.location.host, urlpath = window.location.pathname, cururl = urlhost + urlpath, fullurl = cururl + "?" + qstr;
 
 // the various titles an error message can have - add new ones in your script by using errortitle.push("new title"); - you need to add a \n to the end to add a line break, or a blank space if you don't add a line break
-var errortitle = ["Oh no! ", "Whoops! ", "Dang it! ", "Houston, we have a problem!\n", "Allan, please fix this.\n", ":(\n", "RIP :'(\n"];
+var errortitle = ["Oh no! ", "Whoops! ", "Allan, please fix this.\n", ":(\n", "RIP :'(\n"];
 
 var Menu = new Menu(), Lang = new Lang(), Notif = new Notif();
 console.log("Powered by " + jslname + " v" + jslversion + " - (c) Sv443 / Sven Fehler 2018 ( https://www.github.com/Sv443 ) - licensed under the MIT license");
 
 
-// gets the contents of all meta tags with the name="jsl_setting" attribute and adds customizable separators between them
+// gets the contents of all meta tags with the class="jsl_setting" attribute and adds customizable separators between them
 function getMetaSettings(separation1, separation2){
 	if(separation1 === undefined || separation1 === null || separation1 == 0){separation1 = ":";}
 	if(separation2 === undefined || separation2 === null || separation1 == 0){separation2 = ",";}
 	var metas = document.getElementsByClassName("jsl_setting");
 	var output = "";
 	for(var i = 0; i < metas.length; i++){
-		if(metas[i].content != ""){
+		if(!isempty(metas[i].content)){
 			output += metas[i].name + separation1 + metas[i].content + separation2;
 		}
 		else {
@@ -26,23 +43,12 @@ function getMetaSettings(separation1, separation2){
 	return output;
 }
 
-
-// element with class="loadfocus" will be automatically focused on page load (useful for <input type="text"> tags) if you create the following variable: var jsl_loadfocus_enabled = true;
-document.addEventListener("DOMContentLoaded", function(){
-	if(jsl_loadfocus_enabled !== undefined && jsl_loadfocus === true){
-		if(document.getElementsByClassName("loadfocus")[0] !== null && document.getElementsByClassName("loadfocus")[0].nodeName == "INPUT"){
-			document.getElementsByClassName("loadfocus")[0].focus();
-		}
-	}
-});
-
-
 // converts URL inside string to an HTML anchor tag with optional prefix and target attribute
 function urlify(string, prefix, target) {
     var urlRegex = /(https?:\/\/[^\s]+)/g;
-	if(prefix == "" || prefix === undefined || prefix === null){prefix = "";}
+	if(isempty(prefix)){prefix = "";}
 	else{prefix += "&nbsp;";}
-	if(target == "" || target === undefined || target === null){target = "self_";}
+	if(isempty(target)){target = "self_";}
 	if(target != "blank_" || target != "self_"){target = "self_";}
     return string.replace(urlRegex, function(url) {
         return prefix + '<a href="' + url + '" target="' + target + '">' + url + '</a>';
@@ -141,59 +147,3 @@ function error(cause, contact) {
 	else contact = "(" + contact + ") ";
 	alert(errortitle[r] + "The following error occured:\n\n" + cause + "\n\nPlease contact me " + contact + "with the above information and what you did before the error occured so I can fix it. Thanks!");
 }
-
-
-
-
-/*----------------------------------------------------------------------Demonstration Purposes--------------------------------------------------------------------------------------*/
-
-function demonstrateSettings(){
-	var result = getMetaSettings(": ", "<br>");
-	document.getElementById("settingsoutput").innerHTML = result;
-}
-
-// getMetaSettings
-//
-// var x = getMetaSettings(first separator, second separator);                                       set to undefined, null or 0 to use default value, set to "" to set no separator at all
-// will fetch settings from an HTML file. HTML formatting to be recognized by this script:           <meta class="jsl_setting" name="setting_name" content="setting_value">
-//
-// Example:            var x = getMetaSettings(": ", "<br>");
-//
-// Example Result:     var x equals to "setting1_name: setting1_value<br>setting2_name: setting2_value<br>" and so on
-//
-// can be split to an array to parse better by using      var x = getMetaSettings(separator1, separator2).split(separator2);
-// and then splitting like the following example          var y = x.split(separator2);
-//
-// side note: if a setting's content is left empty, the constant "undefined" will be returned as that setting's content - it will not break!
-
-
-
-
-
-// autofocus
-//
-// <input type="text" id="keyfocus loadfocus"></input>
-// id loadfocus will focus on the input element on page load, keyfocus will focus on the element if a (letter) key is pressed (this only has a handful of applications but i included it anyway)
-
-
-
-
-
-function demonstrateUrlify() {
-	var result = urlify(document.getElementById("urlifyinput").value, "", "blank_");
-	document.getElementById("urlifyoutput").innerHTML = result;
-	
-	document.getElementById("urlifyoutput2").innerHTML = document.getElementById("urlifyinput").value; //raw value without urlify
-}
-
-// urlify
-//
-// var x = urlify(string, prefix, target);                                       set prefix to undefined, null or "" to disable it (example for a prefix: "[URL]") - target can be "blank_" or "self_"
-// will convert a URL inside the string to an HTML anchor tag URL
-//
-// Example:         var string = "blah blah blah https://www.duckduckgo.com/ blah";
-//                  var x = urlify(string, "[URL]", "blank_");
-//
-// Example Result:  var x equals to 'blah blah blah [URL] <a href="https://www.duckduckgo.com/" target="blank_">https://www.duckduckgo.com/</a> blah'
-// 
-// side note: if the target is left empty, it will default to "self_"
