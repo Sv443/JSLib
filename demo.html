@@ -1,47 +1,61 @@
 <!DOCTYPE html><html><head>
 
-<title>Sv443 JS Library</title>
+<title>Sv443's JSLib - Demo</title>
 
-<!--meta charset='UTF-8'>
+<meta charset='UTF-8'>
 <meta name='HandheldFriendly' content='false'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name='keywords' content='javascript, js, markdown, js module, javascript module'>
-<meta name='description' content='SvMarkDown - Advanced, simple markdown for your website!'>
+<meta name='keywords' content='javascript, js, js lib, js library, javascript library, javascript module'>
+<meta name='description' content="JSLib - Dependency by Sv443's websites">
 <meta name='robots' content='all'>
 <meta name='subject' content='Script'>
 <meta name='copyright' content='2018, Sv443 - Licensed under MIT license'>
 <meta name='author' content='Sv443/Sven Fehler, sven.fehler@web.de'>
-<meta name='pagename' content='SvMarkDown Demonstration'>
+<meta name='pagename' content='JSLib Demonstration'>
 
-<script src="jslib.js" title="MarkDown Script"></script>
+<link rel="shortcut icon" type="image/png" href="icon_v1.png">
 
-<meta class="jsl_setting" name="setting1" content="">
-<meta class="jsl_setting" name="setting2" content="content of setting 2">
-<meta class="jsl_setting" name="setting3" content="content of setting 3 (note that setting1's content is left empty and will return the constant 'undefined')">
-
--->
+<script src="jslib.js"></script>
+<script>function domcl(){}</script>
 </head>
 <body>
-	too lazy to add a demo yet, sorry<br>
-	check back again in a few days please
-	<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	<br><br><div style="width:100%;border-style:none none solid none;border-color:#000000;">Meta Settings</div><br>
-	
-	Settings (<span style="cursor:pointer;color:blue;" onclick="demonstrateSettings();">Click to get Settings from HTML meta tags</span>):<br><br>
-	Output:<br><span id="settingsoutput" style="color:#fa6b16;"></span>
-	
-	
-	<br><br><br><div style="width:100%;border-style:none none solid none;border-color:#000000;">LoadFocus</div><br>
-	
-	
-	<input type="text" class="loadfocus" placeholder="This input will automatically focus on page load" style="width:50%;"></input><br><br>
-	
-	
-	<br><br><br><div style="width:100%;border-style:none none solid none;border-color:#000000;">URLify</div><br>
-	
-	
-	<input type="text" id="urlifyinput" placeholder="Enter string with URL to convert the URL inside the string to an anchor tag" style="width:50%;"></input><button onclick="demonstrateUrlify();">&gt;</button><br><br>
-	Output with urlify:<br><span id="urlifyoutput" style="color:#fa6b16;"></span><br><br>
-	Output without urlify:<br><span id="urlifyoutput2" style="color:#fa6b16;"></span>
-	
---></body></html>
+
+<img style="width:6em;height:6em;" src="icon_v1.png"><br>
+<span style="font-size:2em;">JSLib - JavaScript simplified</span>
+<br><br>
+
+<h1>Demonstration:</h1>
+
+
+
+
+
+<h2>Menu:</h2>
+
+<button onclick="Menu.demonstrate();">Menu.demonstrate() - function</button><br><br>
+<button onclick="Menu.theme('dark');Menu.new('demo');Menu.open('demo');">switch theme to dark, create demo menu and open it</button><br><br>
+<button onclick="Menu.theme('dark');">dark theme</button> <button onclick="Menu.theme('light');">light theme</button><br><br>
+<button onclick="Menu.new('demo');">create demo menu</button> <button onclick="Menu.open('demo');">open demo menu</button><br><br>
+<button onclick="Menu.new('1', 'Setting Menu Example', 'Setting #1: <select><option>1</option><option>2</option><option>3</option></select><br><br>Setting #2: <select><option>1</option><option>2</option><option>3</option></select>');">create setting menu example</button> <button onclick="Menu.open('1');">open setting menu example</button>
+
+
+
+
+
+<br><br><br><br><br><h2>Audio:</h2>
+
+<button onclick="Audio.demonstrate();">Audio.demonstrate() - function</button><br><br>
+<button onclick="Audio.new('demo');">create demo audio</button> <button onclick="Audio.play('demo');">play (or unpause) demo audio</button> <button onclick="Audio.pause('demo');">pause demo audio</button><br><br>
+<button onclick="Audio.volume('demo', 0);">demo audio volume -> 0 (muted)</button> <button onclick="Audio.volume('demo', 0.5);">demo audio volume -> 0.5</button> <button onclick="Audio.volume('demo', 1);">demo audio volume -> 1</button>
+
+
+
+
+
+<br><br><br><br><br><h2>Notification:</h2>
+
+<button onclick="Notif.send('JSLib Demo', 'Notification description', 'icon_v1.png');">send demo notification with description and icon</button> <button onclick="Notif.send('JSLib Demo');">send demo notification without description and icon</button> <button onclick="alert('switch the tab or window quickly to see how it would look like if the website or browser is unfocused!');setTimeout(function(){Notif.send('JSLib Demo', 'Notification description', 'icon_v1.png');},5000);">send demo notification after 5 sec delay</button>
+
+
+<br><br><br><br><br><br>
+</body></html>
