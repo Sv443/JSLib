@@ -1,28 +1,32 @@
 /*
 
-JSLib v1.1.0 - JavaScript library that is used by most of Sv443's JS projects that makes coding a bit faster and takes away a bit of the pain in the butt
+JSLib v1.2.0 - JavaScript library that is used by most of Sv443's JS projects that makes coding a bit faster and takes away a bit of the pain in the butt
 For full documentation please visit https://github.com/Sv443/jslib
 To report bugs, suggest features or send in code, please go to https://github.com/Sv443/jslib/issues
 
 
-v1.1.0 changelog:
-	- added Menu.new(), Menu.open(), Menu.close(), Menu.theme() and Menu.demonstrate() to allow for custom menus to be created easily
-	- added Audio.new(), Audio.play(), Audio.pause(), Audio.volume() and Audio.demonstrate() to allow for custom sounds to be created easily
-	- added Notif.send() to allow for desktop notifications to be sent easily
+v1.2.0 changelog:
+	- added Element.new(), Element.remove(), Element.removeOther(), Element.setAttribute(), Element.innerhtml() and Element.outerhtml() to add, remove and modify elements easily
+	- added EventListener to close all opened menus if ESC is pressed
 */
 
 
 
 
-var jslversion = "1.1.0", jslname = "JSLib";
+var jslversion = "1.2.0", jslname = "JSLib";
 var qstr = window.location.search.substring(1); // this is the URL's query string (without question mark)
 var urlhost = window.location.host, urlpath = window.location.pathname, cururl = urlhost + urlpath, fullurl = cururl + "?" + qstr;
 
 // the various titles an error message can have - add new ones in your script by using errortitle.push("new title"); - you need to add a \n to the end to add a line break, or a blank space if you don't add a line break
 var errortitle = ["Oh no! ", "Whoops! ", "Allan, please fix this.\n", ":(\n", "RIP :'(\n"];
 
-var Menu = new Menu(), Lang = new Lang(), Notif = new Notif(), Audio = new Audio();
+var Menu = new Menu(), Notif = new Notification(), Audio = new Audio(), Element = new Element();
 console.log("Powered by " + jslname + " v" + jslversion + " - (c) Sv443 / Sven Fehler 2018 ( https://www.github.com/Sv443 ) - licensed under the MIT license");
+
+
+
+
+
 
 
 // gets the contents of all meta tags with the class="jsl_setting" attribute and adds customizable separators between them
@@ -132,8 +136,10 @@ function Menu(){
 	this.open = function(id){
 		if(isempty(gebid("jsl_menu" + id))){error("you need to create the menu before you try to open it or you entered the wrong id");return;}
 		stylebid("jsl_menu" + id, Menu.styling + "top:10vh;left:10vh;");
+		document.addEventListener("keydown", function(e){if(e.keyCode == 27){Menu.close(id);}});
 	}
 	this.close = function(id){
+		if(isempty(gebid("jsl_menu" + id))){error("you need to create the menu before you try to close it or you entered the wrong id");return;}
 		stylebid("jsl_menu" + id, Menu.styling + "top:120vh;");
 	}
 	this.theme = function(theme){
@@ -167,34 +173,32 @@ function Audio(){
 		document.body.appendChild(audio);
 	}
 	this.play = function(id){
+		if(isempty(gebid("jsl_audio" + id))){error("you need to create the audio before you try to play it or you entered the wrong id");return;}
 		gebid("jsl_audio" + id).play();
 	}
 	this.pause = function(id){
+		if(isempty(gebid("jsl_audio" + id))){error("you need to create the audio before you try to pause it or you entered the wrong id");return;}
 		gebid("jsl_audio" + id).pause();
 	}
 	this.volume = function(id, volume){ // volume must be a float (between 0 and 1.0)
+		if(isempty(gebid("jsl_audio" + id))){error("you need to create the audio before you try to change the volume or you entered the wrong id");return;}
 		gebid("jsl_audio" + id).volume=volume;
 	}
 	this.demonstrate = function(){
 		Audio.new('demo');
-		alert("This demo will create the audio, play the audio for 2 seconds, pause it for 2 seconds, play it again for 2 seconds, then reduce the volume to 0.3 for 2 seconds and then increase the volume to 1 for the rest of the audio");
+		alert("This demo will create the audio, play the audio for 2 seconds, pause it for 2 seconds, play it again for 2 seconds, then reduce the volume to 0.1 for 4 seconds and then increase the volume to 1 for the rest of the audio");
 		Audio.play('demo');
 		setTimeout(function(){Audio.pause('demo')}, 2000);
 		setTimeout(function(){Audio.play('demo')}, 4000);
-		setTimeout(function(){Audio.volume('demo', 0.3)}, 6000);
-		setTimeout(function(){Audio.volume('demo', 1)}, 8000);
+		setTimeout(function(){Audio.volume('demo', 0.1)}, 6000);
+		setTimeout(function(){Audio.volume('demo', 1)}, 10000);
 	}
-}
-
-// will be implemented soon!
-function Lang(){
-	
 }
 
 // to enable notifications, your manifest.json file must contain the following, else it won't work:         "permissions":{"desktop-notification":{}}
 // more info over at https://developer.mozilla.org/en-US/docs/Web/API/notification
 // use description to add a description and iconsrc to add an icon URL - both are optional and can be left empty, null or undefined to disable
-function Notif(){
+function Notification(){
 	this.send = function(title, description, iconsrc){
 		if(isempty(description)) description = "";
 		if(isempty(iconsrc)) iconsrc = "";
@@ -211,6 +215,62 @@ function Notif(){
 				}
 			});
 		}
+	}
+}
+
+// use id "demo" to see an example
+// type is the HTML tag name (for example "div", "a", or "iframe")
+// append is on which parent node the new element will be appended (use "body" to append on the document body, "head" to append on the document head, or another string to append to an element by id)
+// content is the initial innerHTML of the created element
+// if you want to add attributes to the element, you have to use Element.setAttribute() after the creation of it
+// use Element.removeOther() to remove an element by id that has not been created with the Element.new() function, but is instead part of the document already
+// values that can be left empty: "content" in Element.new(), "content" in Element.innerhtml() and Element.outerhtml(), "attributevalue" in Element.setAttribute()
+function Element(){
+	this.new = function(id, type, append, content){
+		if(id == "demo"){Element.demonstrate();return;}
+		if(isempty(id)){error("id value of Element.new() can't be left empty, undefined or null");return;}
+		if(isempty(append)){error("append value of Element.new() can't be left empty, undefined or null");return;}
+		if(isempty(type)){error("type value of Element.new() can't be left empty, undefined or null, it must contain the desired HTML tag name");return;}
+		var element = document.createElement(type);
+		if(!dbihi("jsl_element" + id)){element.id="jsl_element" + id;}
+		else{error("you can't create multiple elements with the same id!");return;}
+		element.class="jsl_element";
+		element.innerHTML=content;
+		if(append == "body") document.body.appendChild(element);
+		else if(append == "head") document.head.appendChild(element);
+		else if(isempty(append)){error("append value of Element.new() can't be left empty, undefined or null");return;}
+		else gebid(append).appendChild(element);
+	}
+	this.remove = function(id){
+		if(isempty(id)){error("the id of the Element.remove() function can't be left empty, null or undefined");return;}
+		var element = gebid("jsl_element" + id);
+		element.parentNode.removeChild(element);
+	}
+	this.removeOther = function(id){
+		if(isempty(id)){error("the id of the Element.removeOther() function can't be left empty, null or undefined");return;}
+		var element = gebid(id);
+		element.parentNode.removeChild(element);
+	}
+	this.outerhtml = function(id, content){
+		if(isempty(id)){error("the id of the Element.outerhtml() function can't be left empty, null or undefined");return;}
+		gebid("jsl_element" + id).outerHTML=content;
+	}
+	this.innerhtml = function(id, content){
+		if(isempty(id)){error("the id of the Element.innerhtml() function can't be left empty, null or undefined");return;}
+		gebid("jsl_element" + id).innerHTML=content;
+	}
+	this.setAttribute = function(id, attributename, attributevalue){
+		if(isempty(id)){error("the id of the Element.setAttribute() function can't be left empty, null or undefined");return;}
+		if(isempty(attributename)){error("the attributename of the Element.setAttribute() function can't be left empty, null or undefined");return;}
+		gebid("jsl_element" + id).setAttribute(attributename, attributevalue);
+	}
+	this.demonstrate = function(){
+		window.scrollTo(0,document.body.scrollHeight);
+		alert("scroll to the bottom to see the demo element");
+		Element.new('element_demo', 'div', 'body', '<b>this</b> <i>is</i> <u>the</u> <sub>innerHTML</sub> of the demo element');
+		setTimeout(function(){Element.innerhtml('element_demo', 'utilizing Element.innerhtml(), you can change this value dynamically');},5000);
+		setTimeout(function(){Element.innerhtml('element_demo', 'in five seconds, this element will be removed');},10000);
+		setTimeout(function(){Element.remove('element_demo');},15000);
 	}
 }
 
