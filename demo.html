@@ -15,8 +15,10 @@
 
 <link rel="shortcut icon" type="image/png" href="icon_v1.png">
 
-<script src="jslib.js"></script>
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@1/jslib.js"></script>-->
+<script type="text/javascript" src="jslib.js"></script>
 <script>function domcl(){}</script>
+
 </head>
 <body>
 
@@ -56,6 +58,18 @@
 
 <button onclick="Notif.send('JSLib Demo', 'Notification description', 'icon_v1.png');">send demo notification with description and icon</button> <button onclick="Notif.send('JSLib Demo');">send demo notification without description and icon</button> <button onclick="alert('switch the tab or window quickly to see how it would look like if the website or browser is unfocused!');setTimeout(function(){Notif.send('JSLib Demo', 'Notification description', 'icon_v1.png');},5000);">send demo notification after 5 sec delay</button>
 
+
+
+
+
+
+
+<br><br><br><br><br><h2>Element:</h2>
+
+<button onclick="Element.new('demo');">Element.demonstrate() - function</button><br><br>
+<button onclick="Element.new('element_demo2', 'a', 'demoappend', 'second demo element');Element.setAttribute('element_demo2', 'href', '');">add second demo element</button> <button onclick="Element.remove('element_demo2');">remove second demo element</button> <button onclick="Element.setAttribute('element_demo2', 'style', 'color:red;');alert('look at the second demo element to see that it changed its color');">change style attribute of the second demo element</button> <button onclick="Element.setAttribute('element_demo2', 'href', 'https://www.example.com/');alert('click the second demo element to see that it now opens www.example.com');">change href attribute of the second demo element</button><br><br>
+
+<span id="demoappend">New elements will be appended here:<br></span>
 
 <br><br><br><br><br><br>
 </body></html>
