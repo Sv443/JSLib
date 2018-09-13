@@ -38,7 +38,7 @@ var elements = document.getElementsByClassName(class); for(var i = 0;i < element
 
 
 
-## Menus
+## Menu API
 ```javascript
 Menu.demonstrate();
 // creates and opens a demo menu so you can look at what you can do with it - try this first!
@@ -54,11 +54,12 @@ Menu.open(id);
 
 Menu.close(id);
 // the menu already has a close button but you can also close it utilizing the id like this
+// this function also gets called if the user presses the ESC key, closing all menus
 ```
 
 
 
-## Audio
+## Audio API
 ```javascript
 Audio.demonstrate();
 // creates and plays a demo audio and uses the below functions so you can hear what you can do with it - try this first!
@@ -79,10 +80,36 @@ Audio.volume(id, volume);
 
 
 
-## Desktop Notifications
+## Desktop Notification API
 ```javascript
 Notif.send(title, description, iconsrc);
 // asks the user for permission to send notifications and then sends a notification with specified title and optionally a description and also optionally an icon URL
+```
+
+
+
+## Element API
+```javascript
+Element.demonstrate();
+// creates an element, changes its innerHTML and deletes it afterwards to show you what you can do with this API - try this first!
+
+Element.new(id, type, append, content);
+// creates a new HTML element - id is used to modify it later, type specifies the tag name ("a", "div", "iframe", ...), append specifies the ID of the element this new element will be appended to, content is just the innerHTML of the new element
+
+Element.remove(id);
+// removes an element with the specified id
+
+Element.removeOther(id);
+// removes an element that was not created by the Element.new() function by its DOM ID
+
+Element.innerhtml(id, content);
+// changes the innerHTML of the element with the specified id
+
+Element.outerhtml(id, content);
+// changes the outerHTML of the element with the specified id
+
+Element.setAttribute(id, attribute_name, attribute_value);
+// adds or changes the attribute of the element with the specified id, the attribute name and attribute value
 ```
 
 
@@ -126,6 +153,7 @@ getMetaSettings(separation1, separation2);
 
 ## Useful Variables
 ```javascript
+ismobile = "true if the device is a phone or tablet, false if it is a PC";
 qstr = "the website's query string (the part after the '?' in the URL), excluding the question mark, eg. 'q=example' in 'www.google.com/search?q=example'";
 urlhost = "the websites hostname, eg. 'www.google.com' in 'www.google.com/search?q=example'";
 urlpath = "the websites path, eg. '/search' in 'www.google.com/search?q=example'";
