@@ -1,0 +1,10 @@
+{
+  "short_name": "Sv443 JSLib",
+  "name": "Sv443 JSLib",
+  "theme_color": "#6060ff",
+  "display": "browser",
+  "orientation": "portrait",
+  "permissions": {
+    "desktop-notification": {}
+  }
+}
