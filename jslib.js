@@ -19,7 +19,7 @@ var urlhost = window.location.host, urlpath = window.location.pathname, cururl =
 // the various titles an error message can have - add new ones in your script by using errortitle.push("new title"); - you need to add a \n to the end to add a line break, or a blank space if you don't add a line break
 var errortitle = ["Oh no! ", "Whoops! ", "Allan, please fix this.\n", ":(\n", "RIP :'(\n"];
 
-var Menu = new Menu(), Notif = new Notification(), Audio = new Audio(), Element = new Element();
+var Menu = new Menu(), Audio = new Audio(), Element = new Element();
 console.log("Powered by " + jslname + " v" + jslversion + " - (c) Sv443 / Sven Fehler 2018 ( https://www.github.com/Sv443 ) - licensed under the MIT license");
 
 
