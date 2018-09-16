@@ -12,7 +12,7 @@ v1.2.1 changelog:
 
 
 
-var jslversion = "1.2.0", jslname = "JSLib";
+var jslversion = "1.2.1", jslname = "JSLib";
 var qstr = window.location.search.substring(1); // this is the URL's query string (without question mark)
 var urlhost = window.location.host, urlpath = window.location.pathname, cururl = urlhost + urlpath, fullurl = cururl + "?" + qstr;
 
