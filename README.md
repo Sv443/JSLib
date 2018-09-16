@@ -80,14 +80,6 @@ Audio.volume(id, volume);
 
 
 
-## Desktop Notification API
-```javascript
-Notif.send(title, description, iconsrc);
-// asks the user for permission to send notifications and then sends a notification with specified title and optionally a description and also optionally an icon URL
-```
-
-
-
 ## Element API
 ```javascript
 Element.demonstrate();
