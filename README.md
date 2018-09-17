@@ -7,7 +7,7 @@
 # Installation:
 - Just add this tag to your HTML header:
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@1/jslib.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@1.2.1b/jslib.js"></script>
 ```
 - Then, add this to one of your scripts:
 ```javascript
