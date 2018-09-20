@@ -13,17 +13,17 @@
 <meta name='author' content='Sv443/Sven Fehler, sven.fehler@web.de'>
 <meta name='pagename' content='JSLib Demonstration'>
 
-<link rel="shortcut icon" type="image/png" href="icon_v1.png">
+<link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/Sv443/jslib/master/icon_v1.png">
 
-<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@1/jslib.js"></script>-->
+<!--script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@1.2.1b/jslib.js" data-modules="cookie"></script-->
 <script type="text/javascript" src="jslib.js"></script>
 <script>function domcl(){}</script>
 
 </head>
 <body>
 
-<img style="width:6em;height:6em;" src="icon_v1.png"><br>
-<span style="font-size:2em;">JSLib - JavaScript simplified</span>
+<img style="width:6em;height:6em;" src="https://raw.githubusercontent.com/Sv443/jslib/master/icon_v1.png"><br>
+<span style="font-size:2em;"><script>document.write(jsli.name);</script> - <script>document.write(jsli.desc);</script></span>
 <br><br>
 
 <h1>Demonstration:</h1>
@@ -49,6 +49,15 @@
 <button onclick="Audio.demonstrate();">Audio.demonstrate() - function</button><br><br>
 <button onclick="Audio.new('demo');">create demo audio</button> <button onclick="Audio.play('demo');">play (or unpause) demo audio</button> <button onclick="Audio.pause('demo');">pause demo audio</button><br><br>
 <button onclick="Audio.volume('demo', 0);">demo audio volume -> 0 (muted)</button> <button onclick="Audio.volume('demo', 0.5);">demo audio volume -> 0.5</button> <button onclick="Audio.volume('demo', 1);">demo audio volume -> 1</button>
+
+
+
+
+
+<br><br><br><br><br><h2>Copy to Clipboard:</h2>
+
+<button onclick="copy('test');">copy "test" to the clipboard</button> <button onclick="copy('example');">copy "example" to the clipboard</button><br>
+<input type="text" placeholder="Test copied text here" style="width:60%;">
 
 
 
