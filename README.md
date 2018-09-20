@@ -164,7 +164,7 @@ urlhost = "the websites hostname, eg. 'www.google.com' in 'www.google.com/search
 urlpath = "the websites path, eg. '/search' in 'www.google.com/search?q=example'";
 cururl = "the websites full URL without query string, eg. 'www.google.com/search' in 'www.google.com/search?q=example'";
 fullurl = "the websites full URL, including query string, eg. 'www.google.com/search?q=example' in 'www.google.com/search?q=example'";
-dummytext.tXY = "replace XY with 10, 30, 50, 70, 100, 150, 200 or 300 depending on how many words you want to get the Lorem Ipsum layout dummy text to test out layouts without having content yet - example HTML usage: <script>document.write(dummytext.t50);</script>";
+dummytext.tXY = "replace XY with 10, 30, 50, 70, 100, 150, 200 or 300 depending on how many words of the Lorem Ipsum layout dummy text you want to get. This dummy text is used to test out layouts without having content yet - example HTML usage: <script>document.write(dummytext.t50);</script>";
 ```
 
 
