@@ -21,6 +21,11 @@ function domcl() {
 
 # Current Features:
 
+## Included Scripts:
+- js-cookie script - <a href="https://github.com/js-cookie/js-cookie">visit the GitHub page</a> to see examples and usage
+
+
+
 ## Shorter versions of most used functions:
 ```javascript
 document.getElementById(id);  ->  gebid(id);
@@ -106,6 +111,14 @@ Element.setAttribute(id, attribute_name, attribute_value);
 
 
 
+## Copy to Clipboard
+```javascript
+copy(text);
+//copies the specified text to the clipboard
+```
+
+
+
 ## Slightly more advanced error system
 ```javascript
 error(cause, contact);
@@ -151,6 +164,7 @@ urlhost = "the websites hostname, eg. 'www.google.com' in 'www.google.com/search
 urlpath = "the websites path, eg. '/search' in 'www.google.com/search?q=example'";
 cururl = "the websites full URL without query string, eg. 'www.google.com/search' in 'www.google.com/search?q=example'";
 fullurl = "the websites full URL, including query string, eg. 'www.google.com/search?q=example' in 'www.google.com/search?q=example'";
+dummytext.tXY = "replace XY with 10, 30, 50, 70, 100, 150, 200 or 300 depending on how many words you want to get the Lorem Ipsum layout dummy text to test out layouts without having content yet - example HTML usage: <script>document.write(dummytext.t50);</script>";
 ```
 
 
