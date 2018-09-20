@@ -92,6 +92,7 @@ Element.demonstrate();
 
 Element.new(id, type, append, content);
 // creates a new HTML element - id is used to modify it later, type specifies the tag name ("a", "div", "iframe", ...), append specifies the ID of the element this new element will be appended to, content is just the innerHTML of the new element
+// if append is "body", it will be appended to the document body, same for "head"
 
 Element.remove(id);
 // removes an element with the specified id
