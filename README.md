@@ -13,7 +13,7 @@
 ```javascript
 function domcl() {
     //this function will be executed after the DOM content has loaded
-    //not including this function will result in an error message
+    //not including this function will result in the library not working
 }
 ```
 
