@@ -1,6 +1,6 @@
 ## Sv443 JSLib - A JavaScript library that is used by most of my JS projects that makes coding a bit faster and takes away a bit of the pain in the butt
 
-## To see some examples, please go to <a href="https://sv443.github.io/jslib/demo.html">this website</a>
+## To see some examples, please go to <a href="https://sv443.github.io/JSLib/demo.html">this website</a>
 
 
 
