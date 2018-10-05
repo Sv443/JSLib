@@ -1,4 +1,4 @@
-## Sv443 JSLib - A JavaScript library that is used by most of my JS projects that makes coding a bit faster and takes away a bit of the pain in the butt
+## Sv443 JSLib - A JavaScript library that makes coding a bit faster and takes away a bit of the pain in the butt and workarounds
 
 ## To see some examples, please go to <a href="https://sv443.github.io/JSLib/demo.html">this website</a>
 
@@ -28,22 +28,64 @@ function domcl() {
 
 ## Shorter versions of most used functions:
 ```javascript
-document.getElementById(id);  ->  gebid(id);
-document.getElementsByClassName(class);  ->  gebcn(class);
-document.getElementsByTagName(tagname);  ->  gebtn(tagname);
-document.getElementById(id).innerHTML="";  ->  clearih(id);
-document.getElementById(id).outerHTML="";  ->  clearoh(id);
-document.body.innerHTML.includes(string);  ->  dbihi(string);
-window.location.href.includes(string);  ->  wlhi(string);
-console.log(string);  ->  clog(string);
-if(string === undefined || string === null || string == ""){}  ->  if(isempty(string)){}
-document.getElementById(id).style=style;  ->  stylebid(id, style);
-var elements = document.getElementsByClassName(class); for(var i = 0;i < elements.length;i++){elements[i].style=style;} -> stylebcn(class, style);
+document.getElementById(id);
+//becomes
+gebid(id);
+
+
+document.getElementsByClassName(class);
+//becomes
+gebcn(class);
+
+
+document.getElementsByTagName(tagname);
+//becomes
+gebtn(tagname);
+
+
+document.getElementById(id).innerHTML="";
+//becomes
+clearih(id);
+
+
+document.getElementById(id).outerHTML="";
+//becomes
+clearoh(id);
+
+
+document.body.innerHTML.includes(string);
+//becomes
+dbihi(string);
+
+
+window.location.href.includes(string);
+//becomes
+wlhi(string);
+
+
+console.log(string);
+//becomes
+clog(string);
+
+
+if(string === undefined || string === null || string == ""){}
+//becomes
+if(isempty(string)){}
+
+
+document.getElementById(id).style=style;
+//becomes
+stylebid(id, style);
+
+
+var elements = document.getElementsByClassName(class); for(var i = 0;i < elements.length;i++){elements[i].style=style;}
+//becomes
+stylebcn(class, style);
 ```
 
 
 
-## Menu API
+## Menu Class
 ```javascript
 Menu.demonstrate();
 // creates and opens a demo menu so you can look at what you can do with it - try this first!
@@ -64,7 +106,7 @@ Menu.close(id);
 
 
 
-## Audio API
+## Audio Class
 ```javascript
 Audio.demonstrate();
 // creates and plays a demo audio and uses the below functions so you can hear what you can do with it - try this first!
@@ -85,7 +127,7 @@ Audio.volume(id, volume);
 
 
 
-## Element API
+## Element Class
 ```javascript
 Element.demonstrate();
 // creates an element, changes its innerHTML and deletes it afterwards to show you what you can do with this API - try this first!
