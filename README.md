@@ -1,4 +1,4 @@
-## Sv443 JSLib - A JavaScript library that makes coding a bit faster and takes away a bit of the pain in the butt and workarounds
+## Sv443 JSLib - A JavaScript library that makes coding a bit faster by taking away a bit of the workarounds and the resulting pain in the ass
 
 ## To see some examples, please go to <a href="https://sv443.github.io/JSLib/demo.html">this website</a>
 
