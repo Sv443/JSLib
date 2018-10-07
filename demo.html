@@ -17,8 +17,7 @@
 
 <!--script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@1.2.1b/jslib.js" data-modules="cookie"></script-->
 <script type="text/javascript" src="jslib.js"></script>
-<script>function domcl(){}</script>
-
+<style>body {font-family:"Calibri";}</style>
 </head>
 <body>
 
@@ -26,13 +25,13 @@
 <span style="font-size:2em;"><script>document.write(jsli.name);</script> - <script>document.write(jsli.desc);</script></span>
 <br><br>
 
-<h1>Demonstration:</h1>
 
 
 
 
 
 <h2>Menu:</h2>
+<h3>Check out the README.md for JS usage</h3>
 
 <button onclick="Menu.demonstrate();">Menu.demonstrate() - function</button><br><br>
 <button onclick="Menu.theme('dark');Menu.new('demo');Menu.open('demo');">switch theme to dark, create demo menu and open it</button><br><br>
@@ -44,7 +43,8 @@
 
 
 
-<br><br><br><br><br><h2>Audio:</h2>
+<br><br><br><br><br><br><br><br><br><h2>Audio:</h2>
+<h3>Check out the README.md for JS usage</h3>
 
 <button onclick="Audio.demonstrate();">Audio.demonstrate() - function</button><br><br>
 <button onclick="Audio.new('demo');">create demo audio</button> <button onclick="Audio.play('demo');">play (or unpause) demo audio</button> <button onclick="Audio.pause('demo');">pause demo audio</button><br><br>
@@ -54,17 +54,30 @@
 
 
 
-<br><br><br><br><br><h2>Copy to Clipboard:</h2>
+<br><br><br><br><br><br><br><h2>Copy to Clipboard:</h2>
+<h3>JS: <kbd>copy("text");</kbd></h3>
 
 <button onclick="copy('test');">copy "test" to the clipboard</button> <button onclick="copy('example');">copy "example" to the clipboard</button><br>
-<input type="text" placeholder="Test copied text here" style="width:60%;">
+<input type="text" placeholder="Test copied text here" style="width:50%;">
 
 
 
 
 
 
-<br><br><br><br><br><h2>Element:</h2>
+<br><br><br><br><br><br><br><h2>Collision Detection:</h2>
+<h3>JS: <kbd>isColliding(gebid("coll_a"), gebid("coll_b"));&nbsp;&nbsp;&nbsp;&nbsp;(returns true or false)</kbd></h3>
+
+<img id="coll_a" style="background-color:orange;display:inline-block;width:8em;height:8em;position:relative;z-index:2;" alt="coll_a"></div>&nbsp;&nbsp;&nbsp;&nbsp;<img id="coll_b" style="background-color:aqua;display:inline-block;width:8em;height:8em;position:relative;left:40%;top:0.5em;" alt="coll_b"></div>
+<br><br>
+<span id="coll_result"></span>
+
+
+
+
+
+<br><br><br><br><br><br><br><h2>Element:</h2>
+<h3>Check out the README.md for JS usage</h3>
 
 <button onclick="Element.new('demo');">Element.demonstrate() - function</button><br><br>
 <button onclick="Element.new('element_demo2', 'a', 'demoappend', 'second demo element');Element.setAttribute('element_demo2', 'href', '');">add second demo element</button> <button onclick="Element.remove('element_demo2');">remove second demo element</button> <button onclick="Element.setAttribute('element_demo2', 'style', 'color:red;');alert('look at the second demo element to see that it changed its color');">change style attribute of the second demo element</button> <button onclick="Element.setAttribute('element_demo2', 'href', 'https://www.example.com/');alert('click the second demo element to see that it now opens www.example.com');">change href attribute of the second demo element</button><br><br>
@@ -72,4 +85,20 @@
 <span id="demoappend">New elements will be appended here:<br></span>
 
 <br><br><br><br><br><br>
+<script>
+var i = 0, g = 0;
+
+setInterval(function() {
+	var ca = gebid("coll_a");
+	var cb = gebid("coll_b");
+	i++;
+	ca.style.position="relative";
+	if(i < 90) ca.style.left= i + "%";
+	if(i > 90) i = 0;
+	
+	clog(isColliding(gebid("coll_a"), gebid("coll_b")));
+	if(isColliding(gebid("coll_a"), gebid("coll_b"))) gebid("coll_result").innerHTML="Colliding: <span style='color:green;'>YES</span>";
+	else gebid("coll_result").innerHTML="Colliding: <span style='color:red;'>NO</span>";
+}, 50);
+</script>
 </body></html>
