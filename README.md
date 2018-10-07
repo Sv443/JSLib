@@ -10,9 +10,9 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@1.3.0/jslib.js"></script>
 ```
 
-- Using NPM:
+- Using NPM (doesn't work currently, I'll fix it in a few days):
 ```
-> npm i svjsl
+> npm install svjsl
 ```
 
 
