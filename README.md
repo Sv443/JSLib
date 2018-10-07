@@ -5,17 +5,12 @@
 
 
 # Installation:
-- Just add this tag to your HTML header:
+- Using the JSDelivr CDN, just add this tag to your HTML header:
 ```html
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@1.3.0/jslib.js"></script>
 ```
-- Then, add this to one of your scripts:
-```javascript
-function domcl() {
-    //this function will be executed after the DOM content has loaded
-    //not including this function will result in the library not working
-}
-```
+
+- NPM coming soon!
 
 
 
@@ -179,22 +174,13 @@ urlify(string, prefix, target);
 
 
 
-## MetaSettings
-HTML:
-```html
-<meta class="jsl_setting" name="your setting's name" content="the value of the setting">
-```
-JS:
+## Collision Detection
 ```javascript
-getMetaSettings(separation1, separation2);
-//returns the following of all metas with the class="jsl_setting":
-//name1 + separation1 + content1 + separation2 + name2 + separation1 + content2 + separation2, ...
-//example: getMetaSettings(': ', '<br>'); with the meta tag in the code block above would return:
-//"your setting's name: the value of the setting<br>"
-//example 2: getMetaSettings(',', ';'); with the meta tag in the code block above would return:
-//"your setting's name,the value of the setting;"
-
-//an empty content will result in undefined
+isColliding(element_a, element_b);
+//will return true if element_a collides with element_b
+//element_a and element_b need to be elements, not strings!
+//that means an example usage would be isColliding(gebid("Player"), gebid("Enemy"));
+//it can't parse an array yet though, so you'll have to do that yourself
 ```
 
 
@@ -207,7 +193,6 @@ urlhost = "the websites hostname, eg. 'www.google.com' in 'www.google.com/search
 urlpath = "the websites path, eg. '/search' in 'www.google.com/search?q=example'";
 cururl = "the websites full URL without query string, eg. 'www.google.com/search' in 'www.google.com/search?q=example'";
 fullurl = "the websites full URL, including query string, eg. 'www.google.com/search?q=example' in 'www.google.com/search?q=example'";
-dummytext.tXY = "replace XY with 10, 30, 50, 70, 100, 150, 200 or 300 depending on how many words of the Lorem Ipsum layout dummy text you want to get. This dummy text is used to test out layouts without having content yet - example HTML usage: <script>document.write(dummytext.t50);</script>";
 ```
 
 
