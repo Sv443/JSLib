@@ -97,6 +97,9 @@ Menu.open(id);
 Menu.close(id);
 // the menu already has a close button but you can also close it utilizing the id like this
 // this function also gets called if the user presses the ESC key, closing all menus
+
+
+//Example: https://sv443.github.io/JSLib/demo.html
 ```
 
 
@@ -118,6 +121,9 @@ Audio.pause(id);
 Audio.volume(id, volume);
 // after you created an audio you can change the volume of it with this function utilizing the id
 // the volume attribute needs to be a float between 0.0 and 1.0
+
+
+//Example: https://sv443.github.io/JSLib/demo.html
 ```
 
 
@@ -145,6 +151,9 @@ Element.outerhtml(id, content);
 
 Element.setAttribute(id, attribute_name, attribute_value);
 // adds or changes the attribute of the element with the specified id, the attribute name and attribute value
+
+
+//Example: https://sv443.github.io/JSLib/demo.html
 ```
 
 
@@ -153,6 +162,7 @@ Element.setAttribute(id, attribute_name, attribute_value);
 ```javascript
 copy(text);
 //copies the specified text to the clipboard
+//Example: https://sv443.github.io/JSLib/demo.html
 ```
 
 
@@ -181,6 +191,7 @@ isColliding(element_a, element_b);
 //element_a and element_b need to be elements, not strings!
 //that means an example usage would be isColliding(gebid("Player"), gebid("Enemy"));
 //it can't parse an array yet though, so you'll have to do that yourself
+//Example: https://sv443.github.io/JSLib/demo.html
 ```
 
 
