@@ -10,7 +10,10 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@1.3.0/jslib.js"></script>
 ```
 
-- NPM coming soon!
+- Using NPM:
+```
+> npm i svjsl
+```
 
 
 
