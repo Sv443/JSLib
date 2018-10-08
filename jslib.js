@@ -4,11 +4,8 @@ To report bugs, suggest features or send in code, please go to https://github.co
 
 
 	Changelog:
-		
-		- removed domcl() function
-		- added colliding(a, b) and collidingbid(a_id, b_id) function to test for collision
-		- removed getMetaSettings()
-		- removed dummytexts
+	
+		- added JSLib to npm
 */
 
 "use-strict";
@@ -18,7 +15,7 @@ To report bugs, suggest features or send in code, please go to https://github.co
 
 
 var jsli = new jslinfo();
-function jslinfo(){this.version="1.4.0";this.name="JSLib";this.desc="JavaScript simplified";this.innerversion=this.version.replace(".", "").replace(".", "");}
+function jslinfo(){this.version="1.4.2";this.name="JSLib";this.desc="JavaScript simplified";this.innerversion=this.version.replace(".", "").replace(".", "");}
 var jslname = jsli.name, jslversion = jsli.version;
 
 var qstr = window.location.search.substring(1); // this is the URL's query string (without question mark)
