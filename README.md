@@ -10,11 +10,14 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@1.3.0/jslib.js"></script>
 ```
 
-- Using NPM (doesn't work currently, I'll fix it in a few days):
+- Using NPM (The NPM version is missing a few features):
 ```
-> npm install svjsl
+> npm i svjsl --save
 ```
-
+Importing it in your script:
+```javascript
+const jsl = require("svjsl");
+```
 
 
 # Current Features:
