@@ -1,5 +1,6 @@
-## Sv443 JSLib - A JavaScript library that makes coding a bit faster by taking away a bit of the workarounds and the resulting pain in the ass
 [![Build Status](https://travis-ci.org/Sv443/JSLib.svg?branch=master)](https://travis-ci.org/Sv443/JSLib)
+
+## Sv443 JSLib - A JavaScript library that makes coding a bit faster by taking away a bit of the workarounds and the resulting pain in the ass
 
 ## To see some examples, please go to <a href="https://sv443.github.io/JSLib/demo.html">this website</a>
 
