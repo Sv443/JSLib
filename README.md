@@ -1,4 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+<br>
 [![ko-fi](https://www.ko-fi.com/img/donate_sm.png)](https://ko-fi.com/K3K4KN75)
 
 # JSLib
