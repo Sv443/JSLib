@@ -214,6 +214,12 @@ cururl = "the websites full URL without query string, eg. 'www.google.com/search
 fullurl = "the websites full URL, including query string, eg. 'www.google.com/search?q=example' in 'www.google.com/search?q=example'";
 ```
 
+## Disable Console Watermark
+If you don't want to have a watermark in your console or if there are multiple iframes on your page that use the JSLib, you can deactivate it by adding this attribute to the script tag:
+```html
+<script src="https://url.to/jslib.js" data-jsl_disablewatermark="true"></script>
+```
+
 
 
 # How to Report Bugs or Contribute to the Script:
