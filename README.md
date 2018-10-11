@@ -4,3 +4,4 @@
 
 ## To see the installation tutorial and a feature overview, please <a href="https://github.com/Sv443/JSLib/wiki">click here</a>
 ## To see some examples, please go to <a href="https://sv443.github.io/JSLib/demo.html">this website</a>
+## If you want to make coding multilingual websites easier, please consider checking out <a href="https://github.com/Sv443/LangApplier">LangApplier</a>
