@@ -15,7 +15,7 @@
 
 <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/Sv443/jslib/master/icon_v1.png">
 
-<!--script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@1.2.1b/jslib.js" data-modules="cookie"></script-->
+<!--script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sv443/jslib@1/jslib.js" data-modules="cookie"></script-->
 <script type="text/javascript" src="jslib.js"></script>
 <style>body {font-family:"Calibri";}</style>
 </head>
@@ -49,6 +49,7 @@
 <button onclick="Audio.demonstrate();">Audio.demonstrate() - function</button><br><br>
 <button onclick="Audio.new('demo');">create demo audio</button> <button onclick="Audio.play('demo');">play (or unpause) demo audio</button> <button onclick="Audio.pause('demo');">pause demo audio</button><br><br>
 <button onclick="Audio.volume('demo', 0);">demo audio volume -> 0 (muted)</button> <button onclick="Audio.volume('demo', 0.5);">demo audio volume -> 0.5</button> <button onclick="Audio.volume('demo', 1);">demo audio volume -> 1</button>
+<button onclick="Audio.loop('demo', true);">activate loop on demo audio</button> <button onclick="Audio.loop('demo', false);">deactivate loop on demo audio</button>
 
 
 
