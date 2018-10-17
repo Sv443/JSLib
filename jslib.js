@@ -5,7 +5,8 @@ To report bugs, suggest features or send in code, please go to https://github.co
 
 	Changelog:
 	
-		- added JSLib to npm
+		- added function to make audio loopable ( Audio.loop("id", true/false); )
+		- fixed styling issues of menus
 */
 
 "use-strict";
@@ -15,7 +16,7 @@ To report bugs, suggest features or send in code, please go to https://github.co
 
 
 var jsli = new jslinfo();
-function jslinfo(){this.version="1.4.2";this.name="JSLib";this.desc="JavaScript simplified";this.innerversion=this.version.replace(".", "").replace(".", "");}
+function jslinfo(){this.version="1.5.0";this.name="JSLib";this.desc="JavaScript simplified";this.innerversion=this.version.replace(".", "").replace(".", "");}
 var jslname = jsli.name, jslversion = jsli.version;
 
 var qstr = window.location.search.substring(1); // this is the URL's query string (without question mark)
@@ -124,7 +125,7 @@ function stylebtn(tagname, style) {
 // the id will get used to identify the menu and open and close it
 // innerhtml must contain a string of HTML code
 function Menu() {
-	this.defaultstyling = "position:fixed;width:80vw;height:80vh;z-index:5000;background-color:#cecece;border-radius:2em;border-style:solid;border-width:0.2em;border-color:black;border-radius:1.5em;";
+	this.defaultstyling = "position:fixed;width:65vw;height:70vh;z-index:5000;background-color:#cecece;border-radius:2em;border-style:solid;border-width:0.2em;border-color:black;border-radius:1.5em;filter:drop-shadow(0.2em 0.2em 0.2em rgba(0,0,0,0.6));";
 	this.new = function(id, title, innerhtml) {
 		if(id != "demo"){if(isempty(id) || isempty(innerhtml)){error("values for Menu.new() can't be left undefined, empty or null!");return;}}
 		if(id == "demo"){title="Demo Menu - Title";innerhtml="This is the content of the menu.<br>You can add <b>HTML</b> <i>tags</i> <u>of</u> <sup>all</sup> <sub>sorts</sub> here,<br>like <button>Buttons</button> or <input type='text' placeholder='Inputs'> or even iframes:<br><iframe src='https://www.example.com'></iframe><br><br>";}
@@ -137,7 +138,7 @@ function Menu() {
 	}
 	this.open = function(id) {
 		if(isempty(gebid("jsl_menu" + id))){error("you need to create the menu before you try to open it or you entered the wrong id");return;}
-		stylebid("jsl_menu" + id, Menu.defaultstyling + "top:10vh;left:10vh;");
+		stylebid("jsl_menu" + id, Menu.defaultstyling + "top:15vh;left:17.5vw;");
 		document.addEventListener("keydown", function(e){if(e.keyCode == 27){Menu.close(id);}});
 	}
 	this.close = function(id) {
@@ -146,10 +147,10 @@ function Menu() {
 	}
 	this.theme = function(theme) {
 		if(theme == "light"){
-			Menu.defaultstyling = "position:fixed;width:80vw;height:80vh;z-index:5000;background-color:#cecece;border-radius:2em;border-style:solid;border-width:0.2em;border-color:black;border-radius:1.5em;color:black;";
+			Menu.defaultstyling = "position:fixed;width:65vw;height:70vh;z-index:5000;background-color:#cecece;border-radius:2em;border-style:solid;border-width:0.2em;border-color:black;border-radius:1.5em;filter:drop-shadow(0.2em 0.2em 0.2em rgba(0,0,0,0.6));";
 		}
 		else if(theme == "dark") {
-			Menu.defaultstyling = "position:fixed;width:80vw;height:80vh;z-index:5000;background-color:#353535;border-radius:2em;border-style:solid;border-width:0.2em;border-color:black;border-radius:1.5em;color:white;";
+			Menu.defaultstyling = "position:fixed;width:65vw;height:70vh;z-index:5000;background-color:#353535;border-radius:2em;border-style:solid;border-width:0.2em;border-color:white;border-radius:1.5em;color:white;filter:drop-shadow(0.2em 0.2em 0.2em rgba(0,0,0,0.6));";
 		}
 	}
 	this.demonstrate = function() {
@@ -161,11 +162,9 @@ function Menu() {
 // use id "demo" to see an example audio
 // the id will get used to identify the audio and play and pause it
 // src must contain a URL to the audio file
-// type must be either "ogg" or "mpeg", depending on the type of audio file used
 function Audio(){
-	this.new = function(id, src, type) {
-		if(id != "demo"){if(isempty(id) || isempty(src) || isempty(type)){error("values for Audio.new() can't be left undefined, empty or null!");return;}}
-		if(id != "demo" && type != "ogg" && type != "mpeg"){error("type value for Audio.new() can only be 'ogg' or 'mpeg' and can't be left undefined, empty or null!");return;}
+	this.new = function(id, src) {
+		if(id != "demo"){if(isempty(id) || isempty(src)){error("values for Audio.new() can't be left undefined, empty or null!");return;}}
 		if(id == "demo"){src="https://raw.githubusercontent.com/Sv443/TextAdventureGame/master/fallingtree0.mp3";}
 		
 		var audio = document.createElement("audio");
@@ -185,6 +184,12 @@ function Audio(){
 	this.volume = function(id, volume) { // volume must be a float (between 0 and 1.0)
 		if(isempty(gebid("jsl_audio" + id))){error("you need to create the audio before you try to change the volume or you entered the wrong id");return;}
 		gebid("jsl_audio" + id).volume=volume;
+	}
+	this.loop = function(id, looping) {
+		if(isempty(gebid("jsl_audio" + id))){error("you need to create the audio before you try to activate/deactivate the looping attribute or you entered the wrong id");return;}
+		if(looping !== false && looping !== true){error("you need to enter either true or false in the Audio.loop() function");return;}
+		if(looping) gebid("jsl_audio" + id).setAttribute("loop", "true");
+		else gebid("jsl_audio" + id).removeAttribute("loop");
 	}
 	this.demonstrate = function() {
 		Audio.new('demo');
@@ -284,8 +289,3 @@ function isColliding(a, b) {
         (a.x > (b.x + b.width))
     );
 }
-
-
-
-
-
